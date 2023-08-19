@@ -1,7 +1,7 @@
 
 let cols, rows, vScale;
 let flowField;
-let res= 25;
+let res= 40;
 let z=100
 let hairColors
 function setup() {
@@ -21,7 +21,7 @@ createCanvas(windowWidth, windowHeight); // larger canvas to draw to
   myvideo.size(width / vScale, height / vScale);
   myvideo.hide();
   // video dom element , the source, will be smaller by vScale which is 40 by 30 to improve performance
-  frameRate(5);
+  frameRate(15);
    
 
   hairColors = [
@@ -55,7 +55,7 @@ function draw() {
       let b = myvideo.pixels[index + 2];
 
       let bright = floor((r + g + b) / 3) // the brightness or greyscale 0-255 is the average of the rgb
-      let angle = (map(bright,0,255,0,TWO_PI))
+      let angle = (map(bright,0,255,0,TWO_PI*1.7))
       //let angle = noise(x * 0.1, y * 0.1,z) * TWO_PI * 2;
       let v = p5.Vector.fromAngle(angle);
   
@@ -63,7 +63,7 @@ function draw() {
       // Draw hair strands
       let xPos = x * vScale;
       let yPos = y * vScale;
-      let clr =floor(map(angle,0,TWO_PI,0,8))
+      let clr =floor(map(angle,0,TWO_PI*1.7,0,hairColors.length))
       
       stroke(hairColors[clr])
       strokeWeight((0.6*angle)+(0.2*vScale)); // hair thickness tied to angle
