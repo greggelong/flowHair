@@ -21,6 +21,7 @@ hairColors = [
 ];
   
   //noiseSeed(0); // Optional: To keep the noise consistent
+  frameRate(15)
 }
 
 function draw() {
