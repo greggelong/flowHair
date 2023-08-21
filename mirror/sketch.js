@@ -63,7 +63,7 @@ function draw() {
       // Draw hair strands
       let xPos = x * vScale;
       let yPos = y * vScale;
-      let clr =floor(map(angle,0,TWO_PI*1.7,0,hairColors.length))
+      let clr =floor(map(angle,0,TWO_PI*1.7,0,hairColors.length-1))
       
       stroke(hairColors[clr])
       strokeWeight((0.6*angle)+(0.2*vScale)); // hair thickness tied to angle
